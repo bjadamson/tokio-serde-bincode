@@ -11,7 +11,7 @@
 //! [`Bytes`]: https://docs.rs/bytes/0.4/bytes/struct.Bytes.html
 //! [`length_delimited`]: http://alexcrichton.com/tokio-io/tokio_io/codec/length_delimited/index.html
 //! [tokio-io]: http://github.com/alexcrichton/tokio-io
-//! [examples]: https://github.com/carllerche/tokio-serde-json/tree/master/examples
+//! [examples]: TODO
 
 extern crate futures;
 extern crate bytes;
@@ -59,8 +59,8 @@ impl<T, U> ReadBincode<T, U>
 {
     /// Creates a new `ReadBincode` with the given buffer stream.
     pub fn new(inner: T) -> ReadBincode<T, U> {
-        let json = Bincode { ghost: PhantomData };
-        ReadBincode { inner: FramedRead::new(inner, json) }
+        let value = Bincode { ghost: PhantomData };
+        ReadBincode { inner: FramedRead::new(inner, value) }
     }
 }
 
